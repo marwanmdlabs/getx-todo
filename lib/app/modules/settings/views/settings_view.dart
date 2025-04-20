@@ -58,7 +58,7 @@ class SettingsView extends GetView<SettingsController> {
             const Gap(16),
             ElevatedButton(
               onPressed: () async {
-                AuthService authService = Get.find<AuthService>();
+                final AuthService authService = Get.find<AuthService>();
                 await authService.clearUserToken();
 
                 Get.offNamed(Routes.LOGIN);

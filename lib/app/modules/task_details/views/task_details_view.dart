@@ -46,7 +46,7 @@ class TaskDetailsView extends GetView<TaskDetailsController> {
                 ),
                 const Spacer(),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
                   decoration: BoxDecoration(
                     color: controller.taskModel.isCompleted
                         ? Colors.green
@@ -114,10 +114,10 @@ class TaskDetailsView extends GetView<TaskDetailsController> {
                         content: Text(
                           LocaleKeys.deleteTaskConfirmation.tr,
                         ),
-                        contentPadding: EdgeInsets.all(20),
+                        contentPadding: const EdgeInsets.all(20),
                         onCancel: () {},
                         onConfirm: () {
-                          TasksController tasksController =
+                          final TasksController tasksController =
                               Get.find<TasksController>();
 
                           tasksController.deleteTask(

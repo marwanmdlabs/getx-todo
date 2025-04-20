@@ -45,7 +45,7 @@ class AddTaskController extends GetxController {
     if (!formKey.currentState!.validate()) return;
 
     if (isEditTask.value) {
-      TaskModel newTaskModel = TaskModel(
+      final TaskModel newTaskModel = TaskModel(
         id: taskData!.id,
         title: titleController.text,
         description: descriptionController.text,
@@ -53,7 +53,7 @@ class AddTaskController extends GetxController {
       );
       tasksController.editTask(updatedTask: newTaskModel);
     } else {
-      TaskModel newTaskModel = TaskModel(
+      final TaskModel newTaskModel = TaskModel(
         id: ((tasksController.state?.length ?? 0) + 1).toString(),
         title: titleController.text,
         description: descriptionController.text,

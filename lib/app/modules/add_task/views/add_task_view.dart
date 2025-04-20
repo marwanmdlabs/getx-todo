@@ -30,7 +30,7 @@ class AddTaskView extends GetView<AddTaskController> {
                 controller: controller.titleController,
                 decoration: InputDecoration(
                   labelText: LocaleKeys.title.tr,
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                 ),
                 validator: controller.validateField,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -40,7 +40,7 @@ class AddTaskView extends GetView<AddTaskController> {
                 controller: controller.descriptionController,
                 decoration: InputDecoration(
                   labelText: LocaleKeys.description.tr,
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   alignLabelWithHint: true,
                 ),
                 maxLines: 4,

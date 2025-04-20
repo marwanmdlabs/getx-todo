@@ -28,13 +28,13 @@ class LocalStorageService extends GetxService {
   }
 
   Future<String?> getUserToken() async {
-    String? token =
+    final String? token =
         await secureStorage.read(key: LocalStorageConstants.userToken);
     return token;
   }
 
   Future<bool> isAuthenticated() async {
-    String? token = await getUserToken();
+    final String? token = await getUserToken();
     return token != null && token.trim().isNotEmpty;
   }
 
@@ -51,7 +51,7 @@ class LocalStorageService extends GetxService {
   bool? getBool({
     required String key,
   }) {
-    bool? val = sharedPref.getBool(
+    final bool? val = sharedPref.getBool(
       key,
     );
     return val;
@@ -70,7 +70,7 @@ class LocalStorageService extends GetxService {
   String? getString({
     required String key,
   }) {
-    String? val = sharedPref.getString(
+    final String? val = sharedPref.getString(
       key,
     );
     return val;

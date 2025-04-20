@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
-import 'package:getx_todo_task/app/core/values/local_storage_constants.dart';
 import 'package:getx_todo_task/app/data/services/auth_service.dart';
-import 'package:getx_todo_task/app/data/services/local_storage_service.dart';
 import 'package:getx_todo_task/app/routes/app_pages.dart';
 import 'package:getx_todo_task/gen/assets.gen.dart';
 
@@ -22,7 +20,7 @@ class LoginView extends GetView<LoginController> {
           const Gap(32),
           ElevatedButton(
             onPressed: () async {
-              AuthService authService = Get.find<AuthService>();
+              final AuthService authService = Get.find<AuthService>();
               await authService.setUserToken("Dummy Token");
               Get.offNamed(Routes.TASKS_PAGE);
             },
@@ -32,7 +30,7 @@ class LoginView extends GetView<LoginController> {
                 50,
               ),
             ),
-            child: Text("Login"),
+            child: const Text("Login"),
           ),
         ],
       ),

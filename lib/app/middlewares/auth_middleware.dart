@@ -6,8 +6,8 @@ import 'package:getx_todo_task/app/routes/app_pages.dart';
 class AuthMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
-    AuthService authService = Get.find<AuthService>();
-    bool isAuthenticated = authService.isAuthenticated;
+    final AuthService authService = Get.find<AuthService>();
+    final bool isAuthenticated = authService.isAuthenticated;
     return isAuthenticated
         ? const RouteSettings(
             name: Routes.TASKS_PAGE,

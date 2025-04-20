@@ -1,12 +1,10 @@
-import 'dart:convert';
-
 import 'package:get/get_connect/connect.dart';
 import 'package:getx_todo_task/app/core/values/api_endpoints.dart';
 import 'package:getx_todo_task/app/data/models/task_model.dart';
 
 class TasksProvider extends GetConnect {
   Future<List<TaskModel>> getTasks() async {
-    List<TaskModel> tasksList = [];
+    final List<TaskModel> tasksList = [];
     final response = await get(ApiEndpoints.tasksEndPoint);
     if (response.status.hasError) {
       return Future.error(response.statusText!);
@@ -16,7 +14,7 @@ class TasksProvider extends GetConnect {
       tasksList.add(TaskModel.fromJson(task));
     });
     await Future.delayed(
-      Duration(
+      const Duration(
         seconds: 2,
       ),
     );

@@ -29,7 +29,7 @@ class TasksPageView extends GetView<TasksController> {
             onPressed: () => Get.toNamed(
               Routes.SETTINGS,
             ),
-            icon: Icon(
+            icon: const Icon(
               Icons.settings,
             ),
           ),
@@ -41,7 +41,7 @@ class TasksPageView extends GetView<TasksController> {
             Routes.ADD_TASK,
           );
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: Container(
         child: controller.obx(
@@ -60,7 +60,7 @@ class TasksPageView extends GetView<TasksController> {
               ),
             ),
           ),
-          onLoading: Center(child: const CircularProgressIndicator()),
+          onLoading: const Center(child: CircularProgressIndicator()),
           onEmpty: Center(
             child: Text(
               LocaleKeys.noTasksFound.tr,

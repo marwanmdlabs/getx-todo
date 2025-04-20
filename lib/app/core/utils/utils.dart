@@ -10,7 +10,7 @@ class Utils {
       maxWidth: Get.width * 0.95,
       titleText: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 20,
           fontWeight: FontWeight.bold,
@@ -19,17 +19,17 @@ class Utils {
       messageText: message != null
           ? Text(
               message,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             )
           : null,
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         bottom: 12,
       ),
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: 16,
         horizontal: 24,
       ),
