@@ -68,13 +68,14 @@ class TasksPageView extends GetView<TasksController> {
             ),
           ),
           onError: (error) => Center(
-              child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(
-              error!,
-              textAlign: TextAlign.center,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                error!,
+                textAlign: TextAlign.center,
+              ),
             ),
-          )),
+          ),
         ),
       ),
     );

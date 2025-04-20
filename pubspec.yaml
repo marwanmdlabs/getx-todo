@@ -39,6 +39,7 @@ dependencies:
   get: ^4.7.2
   #Local Storage
   shared_preferences: ^2.5.3
+  flutter_secure_storage: ^9.2.4
   #UI
   gap: ^3.0.1
   flutter_screenutil: ^5.9.3

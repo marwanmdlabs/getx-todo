@@ -16,7 +16,10 @@ class LocaleKeys {
   static const deleteTask = 'deleteTask';
   static const darkMode = 'darkMode';
   static const login = 'login';
+  static const logout = 'logout';
   static const title = 'title';
+  static const language = 'language';
+  static const settings = "Settings";
   static const description = 'description';
   static const deleteTaskConfirmation = 'deleteTaskConfirmation';
   static const done = 'done';

@@ -17,6 +17,9 @@ Map<String, String> en = {
   LocaleKeys.deleteTask: "Delete Task",
   LocaleKeys.darkMode: "Dark Mode",
   LocaleKeys.login: "Login",
+  LocaleKeys.settings: "Settings",
+  LocaleKeys.language: "Language",
+  LocaleKeys.logout: "Logout",
   LocaleKeys.title: "Title",
   LocaleKeys.description: "Description",
   LocaleKeys.deleteTaskConfirmation:
