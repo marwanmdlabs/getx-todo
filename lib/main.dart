@@ -9,6 +9,7 @@ import 'package:getx_todo_task/app/data/services/auth_service.dart';
 
 import 'package:getx_todo_task/app/data/services/local_storage_service.dart';
 
+import 'app/data/services/internet_connectivity_service.dart';
 import 'app/routes/app_pages.dart';
 
 void main() async {
@@ -23,6 +24,7 @@ void main() async {
 Future<void> initServices() async {
   await Get.putAsync(() => LocalStorageService().init());
   await Get.putAsync(() => AuthService().init());
+  await Get.put(InternetConnectivityService());
 }
 
 class MyApp extends StatelessWidget {

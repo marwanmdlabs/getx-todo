@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 import 'package:getx_todo_task/app/core/values/local_storage_constants.dart';
+import 'package:getx_todo_task/app/data/models/task_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class LocalStorageService extends GetxService {
   late final SharedPreferences sharedPref;
@@ -13,6 +15,11 @@ class LocalStorageService extends GetxService {
         );
     secureStorage = FlutterSecureStorage(aOptions: getAndroidOptions());
     sharedPref = await SharedPreferences.getInstance();
+    await Hive.initFlutter();
+    Hive.registerAdapter(TaskModelAdapter());
+    if (!Hive.isBoxOpen(LocalStorageConstants.tasksBox)) {
+      await Hive.openBox<TaskModel>(LocalStorageConstants.tasksBox);
+    }
     return this;
   }
 

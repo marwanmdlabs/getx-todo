@@ -1,22 +1,34 @@
 import 'package:get/get.dart';
 import 'package:getx_todo_task/app/core/utils/utils.dart';
+import 'package:getx_todo_task/app/core/values/local_storage_constants.dart';
 import 'package:getx_todo_task/app/core/values/localization/locales_keys.dart';
 import 'package:getx_todo_task/app/data/models/task_model.dart';
 import 'package:getx_todo_task/app/data/providers/tasks_provider.dart';
+import 'package:getx_todo_task/app/data/services/internet_connectivity_service.dart';
+import 'package:hive/hive.dart';
 
 class TasksController extends GetxController with StateMixin<List<TaskModel>> {
   final TasksProvider tasksProvider = Get.find<TasksProvider>();
-
+  final InternetConnectivityService internetConnectivityService =
+      Get.find<InternetConnectivityService>();
+  late Box<TaskModel> tasksBox;
   @override
   void onInit() {
     super.onInit();
+    tasksBox = Hive.box<TaskModel>(LocalStorageConstants.tasksBox);
     getAllTasks();
   }
 
   void getAllTasks() async {
     try {
+      List<TaskModel> tasks = [];
       change(null, status: RxStatus.loading());
-      final tasks = await tasksProvider.getTasks();
+      if (!internetConnectivityService.isInternetAvailable.value) {
+        tasks = tasksBox.values.toList();
+      } else {
+        tasks = await tasksProvider.getTasks();
+        await tasksBox.addAll(tasks);
+      }
       if (tasks.isEmpty) {
         change(tasks, status: RxStatus.empty());
       } else {
